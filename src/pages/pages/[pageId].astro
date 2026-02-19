@@ -1,0 +1,18 @@
+---
+import Layout from "~/layouts/Layout.astro";
+
+export const getStaticPaths = () => {
+	const range = (start: number, end: number) =>
+		[...Array(end - start + 1).keys()].map((k) => k + start);
+
+	const paths = range(0, 2**21).map((pageId) => ({ params: { pageId: `${pageId}` } }));
+
+	return paths;
+};
+
+const { pageId } = Astro.params;
+---
+
+<Layout>
+    <h1>Page {pageId}</h1>
+</Layout>

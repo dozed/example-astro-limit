@@ -1,13 +1,12 @@
 ---
-import Layout from "~/layouts/Layout.astro";
+import Layout from '~/layouts/Layout.astro';
 
 export const getStaticPaths = () => {
-	const range = (start: number, end: number) =>
-		[...Array(end - start + 1).keys()].map((k) => k + start);
+    const range = (start: number, end: number) => [...Array(end - start + 1).keys()].map((k) => k + start);
 
-	const paths = range(0, 2**21).map((bookId) => ({ params: { bookId: `${bookId}` } }));
+    const paths = range(0, 2 ** 21).map((bookId) => ({ params: { bookId: `${bookId}` } }));
 
-	return paths;
+    return paths;
 };
 
 const { bookId } = Astro.params;

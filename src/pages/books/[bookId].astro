@@ -5,14 +5,14 @@ export const getStaticPaths = () => {
 	const range = (start: number, end: number) =>
 		[...Array(end - start + 1).keys()].map((k) => k + start);
 
-	const paths = range(0, 2**21).map((pageId) => ({ params: { pageId: `${pageId}` } }));
+	const paths = range(0, 2**21).map((bookId) => ({ params: { bookId: `${bookId}` } }));
 
 	return paths;
 };
 
-const { pageId } = Astro.params;
+const { bookId } = Astro.params;
 ---
 
 <Layout>
-    <h1>Page {pageId}</h1>
+    <h1>Book {bookId}</h1>
 </Layout>
